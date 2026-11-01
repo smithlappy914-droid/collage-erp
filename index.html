@@ -3,120 +3,151 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="St. Joseph's School, Basti - Official Smart Campus Portal, JEE Advanced & Competitive Foundation, Biometric ERP.">
-  <title>St. Joseph's School, Basti | Excellence in Education &amp; Competitive Foundation</title>
-  
+  <meta name="description" content="St. Joseph's School, Basti - Next-Gen Biometric Smart Campus Portal & JEE Advanced Foundation.">
+  <title>St. Joseph's School, Basti | Biometric Smart Campus Portal</title>
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- HTML2PDF Library for Monthly Parent Report PDF Generation -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-  
-  <!-- Supabase JS SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- HTML2PDF for Monthly Student Score Report PDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
+
+  <!-- Supabase SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
 
   <!-- Master Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="theme-light">
+<body>
+
+  <!-- Ambient Glowing Background Layer -->
+  <div class="ambient-glow-canvas" aria-hidden="true"></div>
 
   <!-- Toast Notification Center -->
   <div id="toast-container" class="toast-center" role="region" aria-live="polite"></div>
 
   <!-- ===================================================================
-       1. PUBLIC SCHOOL WEBSITE (ALL IN ENGLISH, DYNAMICALLY POPULATED)
+       1. PUBLIC SMART CAMPUS WEBSITE (LAZY-LOADED SECTIONS)
        =================================================================== -->
   <div id="public-app-wrapper" class="public-app-wrapper">
-    
-    <!-- Top Announcement Bar -->
-    <aside class="announcement-ticker">
-      <div class="ticker-inner">
-        <span class="ticker-tag"><i class="fa-solid fa-bullhorn"></i> Official Portal</span>
-        <p class="ticker-text">St. Joseph's School, Basti — Academic Session 2026–2027 • Integrated JEE Advanced, NEET &amp; Olympiad Foundation (Classes 6 to 12).</p>
-        <a href="#notices" class="ticker-link">Notice Board &rarr;</a>
+
+    <!-- Top Live Status Strip -->
+    <aside class="top-status-strip">
+      <div class="strip-inner">
+        <span class="live-pill"><span class="pulse-dot"></span> BIOMETRIC ZERO-PASSWORD NETWORK</span>
+        <p class="strip-text">St. Joseph's School, Basti — Session 2026–2027 • Integrated JEE Advanced, NEET &amp; Olympiad Foundation (Classes 6 to 12)</p>
+        <a href="#monthly-scores-section" class="strip-cta">Live Scoreboard &rarr;</a>
       </div>
     </aside>
 
-    <!-- Main Navigation Header -->
+    <!-- Main Responsive Header (Zero Overlap Layout) -->
     <header class="school-header" id="school-header">
-      <nav class="nav-container">
+      <div class="nav-container">
         <a href="#home" class="brand-identity">
-          <!-- Official St. Joseph's School, Basti SVG Emblem -->
-          <div class="school-logo-wrapper" id="header-logo-container">
+          <div class="school-logo-wrapper">
             <svg class="st-joseph-crest-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-              <!-- Outer Laurel Wreath (Green) -->
-              <circle cx="60" cy="56" r="46" fill="none" stroke="#15803d" stroke-width="5" stroke-dasharray="8 4"/>
-              <!-- Main Blue Shield -->
+              <circle cx="60" cy="56" r="46" fill="none" stroke="#22c55e" stroke-width="5" stroke-dasharray="8 4"/>
               <path d="M28 20 H92 V58 C92 82 60 96 60 96 C60 96 28 82 28 58 Z" fill="#0c4a6e" stroke="#facc15" stroke-width="2.5"/>
-              <!-- Top Shield Text: TO LEARN TO LOVE -->
               <text x="60" y="31" fill="#ffffff" font-size="6.2" font-family="Cinzel, serif" font-weight="bold" text-anchor="middle">TO LEARN   TO LOVE</text>
-              <!-- Inner White & Red Cross Quadrant -->
               <path d="M35 36 H85 V58 C85 75 60 87 60 87 C60 87 35 75 35 58 Z" fill="#ffffff"/>
               <path d="M56 36 H64 V85 H56 Z M35 54 H85 V62 H35 Z" fill="#dc2626"/>
-              <!-- Center Gold Medallion with Open Book -->
               <circle cx="60" cy="58" r="16" fill="#fef08a" stroke="#ca8a04" stroke-width="2"/>
               <path d="M51 54 Q55 52 60 55 Q65 52 69 54 V64 Q65 62 60 65 Q55 62 51 64 Z" fill="#ffffff" stroke="#b91c1c" stroke-width="1.2"/>
-              <!-- Bottom Ribbon: TRUTH SERVICE KNOWLEDGE -->
-              <path d="M18 102 Q60 114 102 102 L98 112 Q60 122 22 112 Z" fill="#0c4a6e" stroke="#ffffff" stroke-width="1"/>
+              <path d="M18 102 Q60 114 102 102 L98 112 Q60 122 22 112 Z" fill="#0c4a6e" stroke="#facc15" stroke-width="1"/>
               <text x="60" y="110" fill="#ffffff" font-size="5.2" font-family="Plus Jakarta Sans, sans-serif" font-weight="bold" text-anchor="middle">TRUTH • SERVICE • KNOWLEDGE</text>
             </svg>
           </div>
           <div class="brand-names">
             <span class="brand-main">ST. JOSEPH'S SCHOOL, BASTI</span>
-            <span class="brand-tagline">TRUTH • SERVICE • KNOWLEDGE | SESSION 2026–2027</span>
+            <span class="brand-tagline">TRUTH • SERVICE • KNOWLEDGE • SESSION 2026–27</span>
           </div>
         </a>
 
-        <!-- Desktop Navigation Links -->
-        <ul class="nav-links" id="nav-links">
-          <li><a href="#home" class="nav-item active">Home</a></li>
-          <li><a href="#jee-foundation" class="nav-item">JEE &amp; Competitive Wing</a></li>
-          <li><a href="#campus-gallery" class="nav-item">Campus &amp; Labs</a></li>
-          <li><a href="#toppers-section" class="nav-item">Toppers</a></li>
-          <li><a href="#events-holidays" class="nav-item">Events &amp; Holidays</a></li>
-          <li><a href="#notices" class="nav-item">Notice Board</a></li>
-          <li><a href="#report-lookup" class="nav-item">Student Report</a></li>
-        </ul>
+        <button id="mobile-menu-toggle" class="mobile-toggle-btn" type="button" aria-label="Toggle Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
 
-        <div class="nav-actions">
-          <button id="open-dev-mode-btn" class="btn btn-outline-secondary btn-sm" type="button">
-            <i class="fa-solid fa-terminal"></i> <span>Dev Mode</span>
-          </button>
-          <a href="#login-dock" class="btn btn-primary btn-sm">
-            <i class="fa-solid fa-fingerprint"></i> <span>e-Portal Login</span>
-          </a>
-        </div>
-      </nav>
+        <nav class="nav-menu-wrapper" id="nav-menu-wrapper">
+          <ul class="nav-links">
+            <li><a href="#home" class="nav-item active">Home</a></li>
+            <li><a href="#jee-foundation" class="nav-item">JEE Foundation</a></li>
+            <li><a href="#campus-gallery" class="nav-item">Campus &amp; Labs</a></li>
+            <li><a href="#student-activities" class="nav-item">Student Activities</a></li>
+            <li><a href="#live-attendance-public" class="nav-item">Attendance</a></li>
+            <li><a href="#monthly-scores-section" class="nav-item">Monthly Scores</a></li>
+            <li><a href="#toppers-section" class="nav-item">Toppers</a></li>
+            <li><a href="#notices-events" class="nav-item">Notices &amp; Holidays</a></li>
+          </ul>
+
+          <div class="nav-actions">
+            <button id="open-dev-vault-btn" class="btn btn-dev-lock btn-sm" type="button" title="Protected by Developer Face + Thumb Biometrics">
+              <i class="fa-solid fa-terminal"></i> <span>&gt;_dev</span> <i class="fa-solid fa-fingerprint"></i>
+            </button>
+            <a href="#biometric-gateway-card" class="btn btn-gradient btn-sm">
+              <i class="fa-solid fa-expand"></i> <span>Biometric Login</span>
+            </a>
+          </div>
+        </nav>
+      </div>
     </header>
 
     <main id="main-content">
-      
-      <!-- HERO SECTION WITH BIOMETRIC LOGIN e-PORTAL -->
-      <section id="home" class="hero-section">
+
+      <!-- ===============================================================
+           HERO SECTION & ZERO-NUMBER BIOMETRIC GATEWAY
+           =============================================================== -->
+      <section id="home" class="hero-section lazy-section">
         <div class="hero-container">
+          
+          <!-- Left Column: School Specs & Feature Cards -->
           <div class="hero-content">
-            <div class="hero-badge">
-              <i class="fa-solid fa-award"></i> Premier Academic &amp; Competitive Foundation Institution in Basti
+            <div class="pill-badge">
+              <i class="fa-solid fa-bolt"></i> NEXT-GEN BIOMETRIC SMART CAMPUS NETWORK
             </div>
-            <h1 class="hero-heading">To Learn, To Love — Truth, Service &amp; Knowledge.</h1>
-            <p class="hero-description">
-              Welcome to the official Smart Campus Portal of <strong>St. Joseph's School, Basti</strong>. We combine strong moral character with rigorous academic preparation for <strong>JEE Advanced, NEET, NTSE, and International Olympiads</strong> starting right from Class 6 to Class 12.
-            </p>
-            <div class="hero-cta-group">
-              <a href="#jee-foundation" class="btn btn-secondary"><i class="fa-solid fa-atom"></i> Explore JEE &amp; Competitive Wing</a>
-              <a href="#campus-gallery" class="btn btn-outline"><i class="fa-solid fa-images"></i> View Campus &amp; Digital Labs</a>
+            <h1 class="hero-heading">
+              To Learn, To Love — <br>
+              <span class="gradient-text">Truth, Service &amp; Knowledge.</span>
+            </h1>
+
+            <div class="glass-window-card">
+              <div class="window-dots-bar">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-amber"></span>
+                <span class="dot dot-green"></span>
+                <span class="window-bar-title">ABOUT ST. JOSEPH'S SCHOOL, BASTI • LIVE SPECS</span>
+                <span class="window-version-tag">v6.0 Biometric HD</span>
+              </div>
+              <p class="window-body-text">
+                Welcome to the official Smart Campus Portal of <strong>St. Joseph's School, Basti</strong>. Zero passwords, zero phone numbers, and zero emails required. Every Principal, Class Teacher, and Student (Classes 6 to 12) is authenticated strictly via <strong>Face Verification &amp; Thumb/Fingerprint Biometrics</strong>.
+              </p>
             </div>
 
-            <!-- Live Database Counters (All start at 0 until Principal/Teacher adds data) -->
+            <!-- 3 Mini Feature Cards (Inspired by Reference UI) -->
+            <div class="hero-mini-cards">
+              <div class="mini-spec-card">
+                <h4 class="spec-amber"><i class="fa-solid fa-atom"></i> JEE &amp; Olympiad Wing</h4>
+                <p>Integrated competitive exam foundation from Class 6 to Class 12 with monthly test tracking.</p>
+              </div>
+              <div class="mini-spec-card">
+                <h4 class="spec-orange"><i class="fa-solid fa-fingerprint"></i> Face &amp; Thumb Lock</h4>
+                <p>100% passwordless and numberless authentication for Principal, Class Teachers &amp; Students.</p>
+              </div>
+              <div class="mini-spec-card">
+                <h4 class="spec-emerald"><i class="fa-solid fa-cubes"></i> Chunked HD Media</h4>
+                <p>High-speed chunked video &amp; photo streaming with automatic lazy-loading across all classes.</p>
+              </div>
+            </div>
+
+            <!-- Live Database Counters -->
             <div class="hero-stats-grid">
               <div class="hero-stat-card">
                 <span class="stat-number" id="stat-students-count">0</span>
-                <span class="stat-label">Registered Scholars</span>
+                <span class="stat-label">Enrolled Students</span>
               </div>
               <div class="hero-stat-card">
                 <span class="stat-number" id="stat-teachers-count">0</span>
@@ -124,257 +155,384 @@
               </div>
               <div class="hero-stat-card">
                 <span class="stat-number" id="stat-media-count">0</span>
-                <span class="stat-label">Campus Photos &amp; Videos</span>
+                <span class="stat-label">Campus &amp; Activity Media</span>
               </div>
               <div class="hero-stat-card">
-                <span class="stat-number" id="stat-toppers-count">0</span>
-                <span class="stat-label">Academic Toppers</span>
+                <span class="stat-number" id="stat-attendance-count">0</span>
+                <span class="stat-label">Attendance Logs</span>
               </div>
             </div>
           </div>
 
-          <!-- LOGIN e-PORTAL DOCK -->
-          <div class="hero-login-dock" id="login-dock">
+          <!-- Right Column: Biometric Gateway (NO Phone, NO Email!) -->
+          <div class="hero-login-dock" id="biometric-gateway-card">
+            <div class="top-spec-pills">
+              <div class="spec-pill-box">
+                <i class="fa-solid fa-face-viewfinder"></i>
+                <div>
+                  <strong>3D FACE ID</strong>
+                  <span>Live Neural Scan</span>
+                </div>
+              </div>
+              <div class="spec-pill-box">
+                <i class="fa-solid fa-fingerprint"></i>
+                <div>
+                  <strong>THUMB BIOMETRIC</strong>
+                  <span>Touch Sensor Lock</span>
+                </div>
+              </div>
+            </div>
+
             <div class="login-dock-card">
               <div class="login-dock-header text-center">
-                <div class="dock-badge">SESSION: 2026–2027</div>
-                <h3>LOGIN e-PORTAL</h3>
-                <p>Biometric Face-ID &amp; UID Gateway for Principal, Class Teachers &amp; Students</p>
+                <span class="dock-badge"><i class="fa-solid fa-shield-halved"></i> ZERO-NUMBER BIOMETRIC GATEWAY</span>
+                <h3>Start Biometric Session</h3>
+                <p>Select your role and verify your Face ID &amp; Thumbprint</p>
               </div>
 
               <!-- Role Selector Tabs -->
               <div class="role-selector-pills" role="tablist">
                 <button type="button" class="role-pill active" data-role="PRINCIPAL">Principal</button>
                 <button type="button" class="role-pill" data-role="FACULTY">Class Teacher</button>
-                <button type="button" class="role-pill" data-role="STUDENT">Student (Face ID)</button>
-                <button type="button" class="role-pill" data-role="DEVELOPER">Developer</button>
+                <button type="button" class="role-pill" data-role="STUDENT">Student</button>
               </div>
 
-              <!-- First-Time Principal UID Setup Banner -->
+              <!-- One-Time Principal Setup Notice -->
               <div id="principal-setup-banner" class="setup-alert-box hidden">
                 <i class="fa-solid fa-crown"></i>
                 <div>
-                  <strong>First-Time Principal Initialization:</strong>
-                  <p>No Principal UID exists yet. Enter your Name, Phone Number, and scan your Face ID below to establish Supreme Principal Control.</p>
+                  <strong>One-Time Principal Biometric Creation:</strong>
+                  <p>Enter Principal Name and scan your Face ID + Thumb Finger below. Once created, Principal identity is permanently locked and can only be changed by the Developer in <code>&gt;_dev</code>.</p>
                 </div>
               </div>
 
-              <form id="hero-biometric-auth-form" class="hero-login-form" novalidate>
-                <div class="form-group hidden" id="auth-name-group">
-                  <label for="auth-user-name">Principal Full Name *</label>
-                  <div class="input-with-icon">
-                    <i class="fa-solid fa-user-tie"></i>
-                    <input type="text" id="auth-user-name" class="form-control" placeholder="Rev. Fr. / Principal Name">
-                  </div>
+              <!-- Locked Principal Notice -->
+              <div id="principal-locked-banner" class="setup-locked-box hidden">
+                <i class="fa-solid fa-lock"></i>
+                <div>
+                  <strong>Principal Registered: <span id="locked-principal-name-display">--</span></strong>
+                  <p>Verify registered Face ID &amp; Thumb Finger below to open Principal Control Center.</p>
+                </div>
+              </div>
+
+              <form id="biometric-auth-form" class="hero-login-form" novalidate>
+                
+                <!-- Principal Full Name (Shown ONLY once when Principal is not yet created) -->
+                <div class="form-group hidden" id="auth-principal-name-group">
+                  <label for="auth-principal-name">Principal Full Name (One-Time Setup) *</label>
+                  <input type="text" id="auth-principal-name" class="form-control" placeholder="Enter Principal Full Name">
                 </div>
 
-                <div class="form-group" id="auth-uid-group">
-                  <label for="auth-user-uid" id="auth-uid-label">Principal UID *</label>
-                  <div class="input-with-icon">
-                    <i class="fa-solid fa-id-card"></i>
-                    <input type="text" id="auth-user-uid" class="form-control" placeholder="E.g. PRN-2026-001">
-                  </div>
+                <!-- Teacher Selector (Assigned by Principal) -->
+                <div class="form-group hidden" id="auth-teacher-select-group">
+                  <label for="auth-teacher-select">Select Your Appointed Teacher Profile *</label>
+                  <select id="auth-teacher-select" class="form-control">
+                    <option value="">-- Waiting for Principal to Assign Teachers --</option>
+                  </select>
                 </div>
 
-                <div class="form-group" id="auth-phone-group">
-                  <label for="auth-user-phone">Registered Phone Number *</label>
-                  <div class="input-with-icon">
-                    <i class="fa-solid fa-phone"></i>
-                    <input type="tel" id="auth-user-phone" class="form-control" placeholder="+91 98765 43210">
-                  </div>
+                <!-- Student Selector (Added by Class Teacher / Principal) -->
+                <div class="form-group hidden" id="auth-student-select-group">
+                  <label for="auth-student-select">Select Student Profile (Face &amp; Thumb Match) *</label>
+                  <select id="auth-student-select" class="form-control">
+                    <option value="">-- Waiting for Class Teacher to Add Students --</option>
+                  </select>
                 </div>
 
-                <div class="form-group hidden" id="auth-dev-group">
-                  <label for="auth-dev-key">Developer Passkey</label>
-                  <div class="input-with-icon">
-                    <i class="fa-solid fa-terminal"></i>
-                    <input type="password" id="auth-dev-key" class="form-control" value="DEV-2026">
-                  </div>
-                </div>
-
-                <div class="form-group hidden" id="auth-student-face-group">
-                  <label for="auth-student-select">Matched Student Face Profile</label>
-                  <div class="input-with-icon">
-                    <i class="fa-solid fa-user-graduate"></i>
-                    <select id="auth-student-select" class="form-control">
-                      <option value="">-- No Students Registered Yet --</option>
-                    </select>
-                  </div>
-                </div>
-
-                <!-- Live Webcam Face ID Scanner -->
-                <div class="biometric-scanner-box" id="login-biometric-box">
-                  <div class="scanner-header">
-                    <span><i class="fa-solid fa-camera"></i> Live Biometric Face ID</span>
-                    <span class="badge badge-info" id="scanner-status-badge">Awaiting Scan</span>
-                  </div>
-                  <div class="webcam-viewport">
-                    <video id="login-webcam-video" autoplay playsinline muted></video>
-                    <div class="scan-laser-line"></div>
-                    <div class="face-guide-oval"></div>
-                    <div class="webcam-placeholder" id="login-webcam-placeholder">
-                      <i class="fa-solid fa-face-viewfinder"></i>
-                      <span>Click "Scan Face ID" to authenticate</span>
+                <!-- Dual Biometric Scanner: 1. Face ID + 2. Thumb Finger -->
+                <div class="dual-biometric-grid">
+                  <!-- Live Face ID Box -->
+                  <div class="bio-sensor-card">
+                    <div class="sensor-top">
+                      <span><i class="fa-solid fa-camera"></i> 1. Face ID</span>
+                      <span class="badge badge-warn" id="login-face-badge">Unverified</span>
                     </div>
+                    <div class="webcam-viewport" id="login-webcam-viewport">
+                      <video id="login-webcam-video" autoplay playsinline muted></video>
+                      <div class="scan-laser-line"></div>
+                      <div class="face-guide-oval"></div>
+                      <div class="webcam-placeholder" id="login-webcam-placeholder">
+                        <i class="fa-solid fa-user-astronaut"></i>
+                        <span>Face Camera</span>
+                      </div>
+                    </div>
+                    <input type="hidden" id="login-face-token" value="">
+                    <button type="button" class="btn btn-outline btn-sm btn-block" id="btn-scan-login-face">
+                      <i class="fa-solid fa-expand"></i> Scan Face ID
+                    </button>
                   </div>
-                  <input type="hidden" id="login-face-token" value="">
-                  <button type="button" class="btn btn-sm btn-secondary btn-block" id="btn-trigger-login-scan">
-                    <i class="fa-solid fa-expand"></i> Scan &amp; Verify Face ID
-                  </button>
+
+                  <!-- Live Thumb / Fingerprint Box -->
+                  <div class="bio-sensor-card">
+                    <div class="sensor-top">
+                      <span><i class="fa-solid fa-fingerprint"></i> 2. Thumb Finger</span>
+                      <span class="badge badge-warn" id="login-thumb-badge">Unverified</span>
+                    </div>
+                    <div class="thumb-viewport" id="login-thumb-viewport">
+                      <div class="thumb-ring-pulse"></div>
+                      <i class="fa-solid fa-fingerprint thumb-huge-icon" id="login-thumb-icon"></i>
+                      <span class="thumb-hint-text" id="login-thumb-text">Touch Sensor to Verify Thumb</span>
+                    </div>
+                    <input type="hidden" id="login-thumb-token" value="">
+                    <button type="button" class="btn btn-outline btn-sm btn-block" id="btn-scan-login-thumb">
+                      <i class="fa-solid fa-hand-pointer"></i> Scan Thumbprint
+                    </button>
+                  </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-block" id="auth-submit-btn">
-                  <span id="auth-submit-text">Sign In to e-Portal</span>
+                <button type="submit" class="btn btn-gradient btn-block submit-auth-btn">
+                  <span id="auth-submit-text">AUTHENTICATE &amp; ENTER PORTAL</span>
                   <i class="fa-solid fa-arrow-right"></i>
                 </button>
+
+                <div class="dock-footer-meta">
+                  <span><i class="fa-solid fa-shield-check"></i> Zero-Number Biometric Encrypted</span>
+                  <span>No Phone • No Gmail Required</span>
+                </div>
               </form>
             </div>
           </div>
+
         </div>
       </section>
 
       <!-- ===============================================================
-           JEE ADVANCED, NEET & COMPETITIVE EXAM FOUNDATION WING
+           2. JEE ADVANCED, NEET & COMPETITIVE EXAM FOUNDATION WING
            =============================================================== -->
-      <section id="jee-foundation" class="section-padding jee-section">
+      <section id="jee-foundation" class="section-padding lazy-section">
         <div class="section-header text-center">
-          <span class="section-kicker">COMPETITIVE EXCELLENCE CELL</span>
+          <span class="section-kicker">COMPETITIVE ACADEMIC EXCELLENCE</span>
           <h2 class="section-title">JEE Advanced, NEET &amp; Olympiad Foundation Wing</h2>
           <p class="section-subtitle">
-            At St. Joseph's School, Basti, we prepare students beyond regular board examinations. Our structured competitive curriculum builds analytical depth, speed, and problem-solving mastery from Class 6 to Class 12.
+            Structured competitive exam preparation integrated directly into daily school hours from Class 6 to Class 12. Every student's monthly foundation test score is tracked transparently.
           </p>
         </div>
 
-        <div class="about-grid">
-          <div class="about-card jee-card">
-            <div class="card-icon"><i class="fa-solid fa-square-root-variable"></i></div>
-            <span class="badge badge-accent" style="margin-bottom: 0.5rem;">Classes 6 to 8</span>
-            <h3>Junior Olympiad &amp; Logic Foundation</h3>
-            <p>Focuses on Mathematical Olympiads (IMO), National Science Olympiad (NSO), mental aptitude, Vedic mathematics, and foundational coding concepts to spark early analytical thinking.</p>
+        <div class="three-col-grid">
+          <div class="glass-feature-card">
+            <div class="card-top-tag">CLASSES 6 TO 8</div>
+            <h3><i class="fa-solid fa-brain text-amber"></i> Junior Olympiad &amp; Mathematical Aptitude</h3>
+            <p>Builds strong analytical roots in Number Theory, Logical Reasoning, IMO, NSO, and Coding algorithms so students develop natural problem-solving speed early.</p>
           </div>
-
-          <div class="about-card jee-card">
-            <div class="card-icon"><i class="fa-solid fa-atom"></i></div>
-            <span class="badge badge-dept" style="margin-bottom: 0.5rem;">Classes 9 &amp; 10</span>
-            <h3>Pre-Foundation (NTSE &amp; IJSO)</h3>
-            <p>Accelerated training in vector physics, mole concept, advanced algebra, and trigonometry aligned with NTSE, KVPY, and Junior Science Olympiad standards alongside ICSE/CBSE board prep.</p>
+          <div class="glass-feature-card">
+            <div class="card-top-tag">CLASSES 9 &amp; 10</div>
+            <h3><i class="fa-solid fa-atom text-orange"></i> Pre-Foundation (NTSE, IJSO &amp; Calculus Prep)</h3>
+            <p>Bridges high-school science and mathematics with JEE/NEET concepts including Kinematics, Atomic Structure, Vectors, and Trigonometry alongside Board mastery.</p>
           </div>
-
-          <div class="about-card jee-card">
-            <div class="card-icon"><i class="fa-solid fa-rocket"></i></div>
-            <span class="badge badge-success" style="margin-bottom: 0.5rem;">Classes 11 &amp; 12</span>
-            <h3>JEE Main, JEE Advanced &amp; NEET Target</h3>
-            <p>Rigorous Concept-Application modules, weekly CBT (Computer Based Test) mock exams, doubt-remediation clinics, and rank-booster test series tracked directly on the monthly parent report card.</p>
+          <div class="glass-feature-card">
+            <div class="card-top-tag">CLASSES 11 &amp; 12</div>
+            <h3><i class="fa-solid fa-rocket text-emerald"></i> JEE Main, JEE Advanced &amp; NEET Target Batch</h3>
+            <p>Intensive multi-concept problem solving, monthly All-India pattern CBT tests, rank analysis, and personalized doubt-clearing clinics led by expert faculty.</p>
           </div>
         </div>
       </section>
 
       <!-- ===============================================================
-           CAMPUS INFRASTRUCTURE GALLERY (PHOTO & VIDEO TABS)
-           Starts 100% Empty until Principal or Teacher uploads media!
+           3. CAMPUS & CLASSROOM INFRASTRUCTURE GALLERY (LAZY + CHUNKED)
            =============================================================== -->
-      <section id="campus-gallery" class="section-padding gallery-section">
+      <section id="campus-gallery" class="section-padding lazy-section">
         <div class="section-header text-center">
-          <span class="section-kicker">DETAILED INFRASTRUCTURE SHOWCASE</span>
-          <h2 class="section-title">Campus Facilities, Classrooms &amp; Digital Labs</h2>
-          <p class="section-subtitle">Explore verified photos and videos of our School Ground, Classrooms (All Sections), Computer Lab, and Digital Classrooms uploaded directly by the Principal and Class Teachers.</p>
+          <span class="section-kicker">HIGH-DEFINITION INFRASTRUCTURE</span>
+          <h2 class="section-title">School Ground, Classrooms, Computer &amp; Digital Labs</h2>
+          <p class="section-subtitle">
+            All photos and videos are uploaded in high-speed chunks by the Principal and Class Teachers. Filter by section or class below.
+          </p>
         </div>
 
-        <!-- Category Filter Tabs -->
-        <div class="gallery-tabs" id="public-gallery-tabs">
-          <button type="button" class="gallery-tab active" data-cat="ALL">All Campus Media</button>
-          <button type="button" class="gallery-tab" data-cat="School Ground"><i class="fa-solid fa-futbol"></i> School Ground</button>
-          <button type="button" class="gallery-tab" data-cat="Classrooms"><i class="fa-solid fa-chalkboard"></i> Classrooms (All Sections)</button>
-          <button type="button" class="gallery-tab" data-cat="Computer Lab"><i class="fa-solid fa-computer"></i> Computer Lab</button>
-          <button type="button" class="gallery-tab" data-cat="Digital Classroom"><i class="fa-solid fa-tv"></i> Digital Classroom</button>
+        <div class="filter-pills-bar" id="campus-gallery-tabs">
+          <button type="button" class="filter-pill active" data-cat="ALL">All Campus Media</button>
+          <button type="button" class="filter-pill" data-cat="School Ground"><i class="fa-solid fa-futbol"></i> School Ground</button>
+          <button type="button" class="filter-pill" data-cat="Classrooms"><i class="fa-solid fa-chalkboard"></i> Classrooms (Class 6–12)</button>
+          <button type="button" class="filter-pill" data-cat="Computer Lab"><i class="fa-solid fa-computer"></i> Computer Lab</button>
+          <button type="button" class="filter-pill" data-cat="Digital Classroom"><i class="fa-solid fa-tv"></i> Digital Classroom</button>
         </div>
 
-        <!-- Dynamic Gallery Grid (Empty until uploaded) -->
-        <div class="media-gallery-grid" id="public-gallery-grid"></div>
+        <div class="media-gallery-grid" id="public-campus-gallery-grid"></div>
       </section>
 
       <!-- ===============================================================
-           HALL OF FAME / SCHOOL TOPPERS SECTION (Starts Empty)
+           4. STUDENT ACTIVITIES SHOWCASE (ANY CLASS PHOTO & VIDEO)
            =============================================================== -->
-      <section id="toppers-section" class="section-padding toppers-section">
+      <section id="student-activities" class="section-padding lazy-section">
         <div class="section-header text-center">
-          <span class="section-kicker">ACADEMIC &amp; COMPETITIVE LAURELS</span>
-          <h2 class="section-title">School Toppers &amp; JEE/Olympiad Rankers</h2>
-          <p class="section-subtitle">Celebrating our highest-scoring scholars across Board Examinations and Competitive Foundation Tests.</p>
+          <span class="section-kicker">CO-CURRICULAR &amp; PRACTICAL INNOVATION</span>
+          <h2 class="section-title">Live Student Activities Across All Classes</h2>
+          <p class="section-subtitle">
+            Photos and videos of students from Class 6 to Class 12 participating in Science Experiments, Robotics, Sports, Cultural Debates, and Classroom Presentations.
+          </p>
         </div>
 
+        <div class="filter-pills-bar" id="activity-class-tabs">
+          <button type="button" class="filter-pill active" data-cls="ALL">All Classes</button>
+          <button type="button" class="filter-pill" data-cls="Class 6">Class 6</button>
+          <button type="button" class="filter-pill" data-cls="Class 7">Class 7</button>
+          <button type="button" class="filter-pill" data-cls="Class 8">Class 8</button>
+          <button type="button" class="filter-pill" data-cls="Class 9">Class 9</button>
+          <button type="button" class="filter-pill" data-cls="Class 10">Class 10</button>
+          <button type="button" class="filter-pill" data-cls="Class 11">Class 11</button>
+          <button type="button" class="filter-pill" data-cls="Class 12">Class 12</button>
+        </div>
+
+        <div class="media-gallery-grid" id="public-activities-grid"></div>
+      </section>
+
+      <!-- ===============================================================
+           5. LIVE CLASS-WISE ATTENDANCE MONITOR
+           =============================================================== -->
+      <section id="live-attendance-public" class="section-padding lazy-section">
+        <div class="section-header text-center">
+          <span class="section-kicker">REAL-TIME BIOMETRIC ROLL CALL</span>
+          <h2 class="section-title">Live Class-Wise Attendance Status</h2>
+          <p class="section-subtitle">
+            Whenever any Class Teacher marks attendance, it updates live for the Principal and on the campus summary board below.
+          </p>
+        </div>
+
+        <div class="glass-panel-card">
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Class &amp; Section</th>
+                  <th>Assigned Class Teacher</th>
+                  <th>Total Students</th>
+                  <th>Present Today</th>
+                  <th>Absent Today</th>
+                  <th>Attendance %</th>
+                  <th>Last Synced</th>
+                </tr>
+              </thead>
+              <tbody id="public-attendance-summary-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===============================================================
+           6. MONTHLY STUDENT SCOREBOARD (EVERY EXAM & TEST LIST)
+           =============================================================== -->
+      <section id="monthly-scores-section" class="section-padding lazy-section">
+        <div class="section-header text-center">
+          <span class="section-kicker">COMPREHENSIVE ACADEMIC LEDGER</span>
+          <h2 class="section-title">Monthly Student Exam &amp; Competitive Test Scoreboard</h2>
+          <p class="section-subtitle">
+            Complete month-by-month breakdown of how much every student is scoring across Unit Tests, Monthly Evaluations, Board Prep, and JEE/Olympiad Foundation Tests.
+          </p>
+        </div>
+
+        <div class="glass-panel-card">
+          <div class="panel-header">
+            <div class="filter-row-wrap">
+              <select id="public-score-class-filter" class="form-control" style="width:auto;">
+                <option value="ALL">All Classes (6 to 12)</option>
+                <option value="Class 6">Class 6</option>
+                <option value="Class 7">Class 7</option>
+                <option value="Class 8">Class 8</option>
+                <option value="Class 9">Class 9</option>
+                <option value="Class 10">Class 10</option>
+                <option value="Class 11">Class 11</option>
+                <option value="Class 12">Class 12</option>
+              </select>
+              <select id="public-score-month-filter" class="form-control" style="width:auto;">
+                <option value="ALL">All Months</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+              </select>
+              <input type="text" id="public-score-search" class="form-control" placeholder="Search Student Name or UID..." style="max-width:260px;">
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Student UID &amp; Roll</th>
+                  <th>Student Name</th>
+                  <th>Class</th>
+                  <th>Month &amp; Exam Name</th>
+                  <th>Maths (100)</th>
+                  <th>Science/Phy (100)</th>
+                  <th>Chem/Comp (100)</th>
+                  <th>English (100)</th>
+                  <th>JEE/Olympiad (100)</th>
+                  <th>Total % &amp; Grade</th>
+                  <th>Report PDF</th>
+                </tr>
+              </thead>
+              <tbody id="public-monthly-scores-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===============================================================
+           7. TOPPERS HALL OF FAME
+           =============================================================== -->
+      <section id="toppers-section" class="section-padding lazy-section">
+        <div class="section-header text-center">
+          <span class="section-kicker">MERIT &amp; DISTINCTION</span>
+          <h2 class="section-title">School Toppers &amp; Competitive Rankers</h2>
+        </div>
         <div class="media-gallery-grid" id="public-toppers-grid"></div>
       </section>
 
       <!-- ===============================================================
-           UPCOMING EVENTS & OFFICIAL HOLIDAY CALENDAR (Starts Empty)
+           8. NOTICE BOARD, UPCOMING EVENTS & HOLIDAYS
            =============================================================== -->
-      <section id="events-holidays" class="section-padding">
-        <div class="dashboard-two-col">
-          <!-- Upcoming & Past Events -->
-          <div class="panel-card">
+      <section id="notices-events" class="section-padding lazy-section">
+        <div class="three-col-grid">
+          <div class="glass-panel-card">
             <div class="panel-header">
-              <div>
-                <span class="section-kicker">CAMPUS ACTIVITIES</span>
-                <h3 class="panel-title"><i class="fa-solid fa-calendar-star"></i> Upcoming &amp; Recent School Events</h3>
-              </div>
+              <h3 class="panel-title"><i class="fa-solid fa-bullhorn text-amber"></i> Official Notice Board</h3>
             </div>
-            <div id="public-events-container" class="notices-list"></div>
+            <div id="public-notices-box" class="stack-list"></div>
           </div>
 
-          <!-- Official Holiday List -->
-          <div class="panel-card">
+          <div class="glass-panel-card">
             <div class="panel-header">
-              <div>
-                <span class="section-kicker">ACADEMIC VACATIONS</span>
-                <h3 class="panel-title"><i class="fa-solid fa-umbrella-beach"></i> Official Holiday Calendar</h3>
-              </div>
+              <h3 class="panel-title"><i class="fa-solid fa-calendar-check text-orange"></i> Upcoming Events</h3>
             </div>
-            <div id="public-holidays-container" class="notices-list"></div>
+            <div id="public-events-box" class="stack-list"></div>
           </div>
-        </div>
-      </section>
 
-      <!-- ===============================================================
-           OFFICIAL NOTICE BOARD (Starts Empty)
-           =============================================================== -->
-      <section id="notices" class="section-padding">
-        <div class="section-header text-center">
-          <span class="section-kicker">OFFICIAL CIRCULARS</span>
-          <h2 class="section-title">Digital Notice Board</h2>
-          <p class="section-subtitle">Real-time circulars, exam schedules, and parent notifications issued by the Principal and Class Teachers.</p>
-        </div>
-        <div id="public-notices-list" class="notices-list" style="max-width: 900px; margin: 0 auto;"></div>
-      </section>
-
-      <!-- ===============================================================
-           PUBLIC STUDENT REPORT & MONTHLY PDF LOOKUP
-           =============================================================== -->
-      <section id="report-lookup" class="section-padding">
-        <div class="panel-card" style="max-width: 850px; margin: 0 auto;">
-          <div class="section-header text-center" style="margin-bottom: 1.5rem;">
-            <span class="section-kicker">INSTANT ACADEMIC REPORT VERIFICATION</span>
-            <h2 class="section-title" style="font-size: 1.75rem;">Student Progress &amp; Monthly PDF Report Lookup</h2>
-            <p class="section-subtitle">Parents and students can enter the Student UID to view detailed subject scores, competitive foundation marks, and download the official Monthly Report PDF.</p>
+          <div class="glass-panel-card">
+            <div class="panel-header">
+              <h3 class="panel-title"><i class="fa-solid fa-umbrella-beach text-emerald"></i> Holiday Calendar</h3>
+            </div>
+            <div id="public-holidays-box" class="stack-list"></div>
           </div>
-          <div style="display: flex; gap: 0.75rem; max-width: 540px; margin: 0 auto 1.5rem;">
-            <input type="text" id="public-report-uid-input" class="form-control plain-input" placeholder="Enter Student UID (e.g. STU-2026-C8A-01)">
-            <button type="button" class="btn btn-primary" id="btn-public-search-report">
-              <i class="fa-solid fa-magnifying-glass"></i> View Report
-            </button>
-          </div>
-          <div id="public-report-result-box"></div>
         </div>
       </section>
 
     </main>
 
-    <!-- PUBLIC FOOTER -->
+    <!-- Footer -->
     <footer class="school-footer">
-      <div class="footer-bottom">
-        <p>&copy; 2026 St. Joseph's School, Basti. All Rights Reserved. Connected to Supabase Cloud (`kfsahylpyelqyjtkxhqr`).</p>
-        <div class="footer-legal-links">
-          <a href="#home">Back to Top &uarr;</a>
+      <div class="footer-grid">
+        <div class="footer-card">
+          <h4>1. ZERO-NUMBER BIOMETRIC POLICY</h4>
+          <p>St. Joseph's School, Basti operates on 100% Face ID and Thumbprint verification. Zero phone numbers or email addresses are collected or exposed.</p>
+        </div>
+        <div class="footer-card">
+          <h4>2. PRINCIPAL &amp; TEACHER GOVERNANCE</h4>
+          <p>The Principal assigns Class Teachers and monitors live attendance. Class Teachers enroll students in their classes and update monthly exam scores.</p>
+        </div>
+        <div class="footer-card">
+          <h4>3. CHUNKED STREAMING &amp; LAZY LOAD</h4>
+          <p>All classroom videos and activity photos are processed in 512KB binary chunks with automatic viewport lazy-loading for lag-free performance.</p>
+        </div>
+        <div class="footer-card">
+          <h4>4. DEVELOPER BIOMETRIC VAULT</h4>
+          <p>Root database modifications and Principal reassignment are hardware-locked inside <code>&gt;_dev</code> requiring the Developer's personal Face &amp; Thumbprint.</p>
         </div>
       </div>
     </footer>
@@ -382,27 +540,27 @@
 
 
   <!-- ===================================================================
-       2. PRIVATE UNIFIED ERP DASHBOARD (PRINCIPAL, TEACHER, STUDENT, DEV)
+       2. PRIVATE ROLE-BASED WORKSPACE (PRINCIPAL, TEACHER, STUDENT, DEV)
        =================================================================== -->
   <div id="private-dashboard-wrapper" class="private-dashboard-wrapper hidden" aria-hidden="true">
-    
-    <!-- SIDEBAR -->
+
+    <!-- Sidebar -->
     <aside class="dashboard-sidebar" id="dashboard-sidebar">
       <div class="sidebar-brand">
         <div class="sidebar-crest"><i class="fa-solid fa-shield-halved"></i></div>
         <div class="sidebar-brand-text">
           <span class="brand-title">ST. JOSEPH'S, BASTI</span>
-          <span class="brand-subtitle" id="sidebar-role-indicator">SMART ERP</span>
+          <span class="brand-subtitle" id="sidebar-role-indicator">BIOMETRIC ERP</span>
         </div>
         <button type="button" class="sidebar-close-btn" id="sidebar-close-btn">&times;</button>
       </div>
 
       <div class="sidebar-user-card">
-        <div class="user-avatar-circle"><i class="fa-solid fa-user-check"></i></div>
+        <div class="user-avatar-circle"><i class="fa-solid fa-fingerprint"></i></div>
         <div class="user-info-text">
           <h4 id="sidebar-user-name">User</h4>
           <span class="user-role-tag" id="sidebar-user-role-badge">ROLE</span>
-          <div id="sidebar-user-uid" style="font-size: 0.7rem; color: #cbd5e1; margin-top: 2px;">UID: --</div>
+          <div id="sidebar-user-uid" class="uid-subtext">UID: --</div>
         </div>
       </div>
 
@@ -411,532 +569,558 @@
       </nav>
 
       <div class="sidebar-footer">
-        <button type="button" class="btn-logout-sidebar" id="sidebar-logout-btn">
-          <i class="fa-solid fa-arrow-right-from-bracket"></i>
-          <span>End Session (Logout)</span>
+        <button type="button" class="btn btn-danger-soft btn-block btn-sm" id="sidebar-logout-btn">
+          <i class="fa-solid fa-power-off"></i> End Biometric Session
         </button>
       </div>
     </aside>
 
-    <!-- MAIN WORKSPACE -->
+    <!-- Main Dashboard Viewport -->
     <div class="dashboard-main-area">
       <header class="dashboard-topbar">
         <div class="topbar-left">
           <button type="button" class="topbar-mobile-toggle" id="sidebar-open-btn"><i class="fa-solid fa-bars"></i></button>
           <div class="workspace-title-box">
-            <h2 id="topbar-view-title">Dashboard</h2>
-            <span class="topbar-breadcrumb" id="topbar-breadcrumb">St. Joseph's School, Basti</span>
+            <h2 id="topbar-view-title">Control Center</h2>
+            <span class="topbar-breadcrumb" id="topbar-breadcrumb">Face &amp; Thumb Verified</span>
           </div>
         </div>
 
         <div class="topbar-right">
-          <div class="portal-live-clock"><i class="fa-regular fa-clock"></i> <span id="clock-display">Loading...</span></div>
-          <div id="faculty-class-lock-badge" class="faculty-class-badge hidden">LOCKED</div>
-          <button type="button" class="btn btn-sm btn-outline-secondary" id="exit-dashboard-to-public-btn">
-            <i class="fa-solid fa-globe"></i> View Website
+          <div class="portal-live-clock"><i class="fa-regular fa-clock"></i> <span id="clock-display">--</span></div>
+          <button type="button" class="btn btn-outline btn-sm" id="btn-open-quick-upload-modal">
+            <i class="fa-solid fa-cloud-arrow-up"></i> Quick Upload Video/Photo
           </button>
-          <button type="button" class="btn btn-sm btn-danger-soft logout-btn-trigger">
-            <i class="fa-solid fa-power-off"></i> Logout
+          <button type="button" class="btn btn-outline btn-sm" id="exit-dashboard-to-public-btn">
+            <i class="fa-solid fa-globe"></i> Public Website
+          </button>
+          <button type="button" class="btn btn-danger-soft btn-sm logout-btn-trigger">
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
           </button>
         </div>
       </header>
 
-      <main class="dashboard-content-viewport" id="dashboard-viewport">
+      <main class="dashboard-content-viewport">
 
         <!-- =============================================================
-             VIEW 1: PRINCIPAL SUPREME CONTROL & CMS DASHBOARD
+             VIEW A: PRINCIPAL SUPREME CONTROL DASHBOARD
              ============================================================= -->
         <div id="view-principal-dashboard" class="role-view-container hidden">
-          <div class="permission-notice-banner" style="background: #eff6ff; border-color: #bfdbfe; color: #1e3a8a;">
-            <i class="fa-solid fa-crown" style="font-size: 1.5rem; color: var(--accent-gold);"></i>
-            <div style="flex:1;">
-              <strong>Supreme Principal Governance — St. Joseph's School, Basti</strong>
-              <div id="principal-banner-meta" style="font-size: 0.82rem;">UID: -- | Phone: --</div>
-              <p style="font-size: 0.8rem; margin-top: 4px;">You have 100% authority to appoint Class Teachers, register Students (Classes 6–12, Sections A/B/C), upload/edit/delete Campus Photos &amp; Videos, post Notices, Holidays, Toppers, and generate Monthly Parent PDF Reports.</p>
+          <div class="role-banner">
+            <i class="fa-solid fa-crown icon-gold"></i>
+            <div>
+              <strong>Supreme Principal Governance Active — <span id="p-banner-name">--</span></strong>
+              <p>You can assign Class Teachers, view live attendance marked by any Class Teacher, upload chunked videos/photos for any class or section, and remove any student registration.</p>
             </div>
           </div>
 
-          <!-- Principal Section Navigation Tabs -->
+          <!-- Principal Sub-Navigation Pills -->
           <div class="erp-subtabs">
-            <button type="button" class="erp-tab-btn active" data-ptab="ptab-people"><i class="fa-solid fa-users-gear"></i> 1. Teachers &amp; Students (Class 6–12)</button>
-            <button type="button" class="erp-tab-btn" data-ptab="ptab-media"><i class="fa-solid fa-photo-film"></i> 2. Campus Photos &amp; Videos CMS</button>
-            <button type="button" class="erp-tab-btn" data-ptab="ptab-board"><i class="fa-solid fa-bullhorn"></i> 3. Notices, Events, Holidays &amp; Toppers</button>
-            <button type="button" class="erp-tab-btn" data-ptab="ptab-reports"><i class="fa-solid fa-file-pdf"></i> 4. Detailed Scores &amp; Monthly Parent PDF</button>
+            <button type="button" class="erp-tab-btn active" data-ptab="ptab-teachers"><i class="fa-solid fa-chalkboard-user"></i> 1. Assign Teachers &amp; Manage Students</button>
+            <button type="button" class="erp-tab-btn" data-ptab="ptab-live-attendance"><i class="fa-solid fa-clipboard-user"></i> 2. Live Attendance Feed (All Classes)</button>
+            <button type="button" class="erp-tab-btn" data-ptab="ptab-media-cms"><i class="fa-solid fa-photo-film"></i> 3. Upload Campus &amp; Activity Videos/Photos</button>
+            <button type="button" class="erp-tab-btn" data-ptab="ptab-board-cms"><i class="fa-solid fa-bullhorn"></i> 4. Notices, Events, Holidays &amp; Toppers</button>
           </div>
 
-          <!-- PRINCIPAL SUB-TAB 1: APPOINT TEACHERS & REGISTER STUDENTS -->
-          <div id="ptab-people" class="ptab-pane">
-            <div class="dashboard-two-col">
-              <!-- Appoint Class Teacher -->
-              <div class="panel-card">
+          <!-- PTAB 1: ASSIGN CLASS TEACHERS & REMOVE/MANAGE STUDENTS -->
+          <div id="ptab-teachers" class="ptab-pane">
+            <div class="two-col-grid">
+              <!-- Assign Teacher Form (NO Phone, NO Email!) -->
+              <div class="glass-panel-card">
                 <div class="panel-header">
                   <div>
-                    <h3 class="panel-title"><i class="fa-solid fa-chalkboard-user"></i> Appoint Class Teacher</h3>
-                    <p class="panel-sub">Assign teacher to any Class (6–12) &amp; Section with Phone &amp; Face ID</p>
+                    <h3 class="panel-title"><i class="fa-solid fa-user-plus text-amber"></i> Assign New Class Teacher</h3>
+                    <p class="panel-sub">Register Teacher with Name, Assigned Class, Face ID &amp; Thumb Finger</p>
                   </div>
                 </div>
-                <form id="principal-add-teacher-form" class="erp-form" novalidate>
+                <form id="principal-assign-teacher-form" class="erp-form" novalidate>
                   <div class="form-row-2">
                     <div class="form-group">
                       <label>Teacher Full Name *</label>
-                      <input type="text" id="t-name" class="form-control plain-input" placeholder="E.g. Mr. R. K. Tiwari" required>
+                      <input type="text" id="pt-name" class="form-control" placeholder="E.g. Mr. R. K. Sharma" required>
                     </div>
                     <div class="form-group">
-                      <label>Phone Number *</label>
-                      <input type="tel" id="t-phone" class="form-control plain-input" placeholder="+91 98765 11111" required>
-                    </div>
-                  </div>
-                  <div class="form-row-2">
-                    <div class="form-group">
-                      <label>Assign Class &amp; Section *</label>
-                      <select id="t-class" class="form-control plain-input" required>
-                        <option value="Class 6-A">Class 6 - Section A</option>
-                        <option value="Class 6-B">Class 6 - Section B</option>
-                        <option value="Class 7-A">Class 7 - Section A</option>
-                        <option value="Class 7-B">Class 7 - Section B</option>
-                        <option value="Class 8-A">Class 8 - Section A</option>
-                        <option value="Class 8-B">Class 8 - Section B</option>
-                        <option value="Class 9-A">Class 9 - Section A</option>
-                        <option value="Class 9-B">Class 9 - Section B</option>
-                        <option value="Class 10-A">Class 10 - Section A</option>
-                        <option value="Class 10-B">Class 10 - Section B</option>
-                        <option value="Class 11-Sci">Class 11 - Science (JEE/NEET)</option>
-                        <option value="Class 12-Sci">Class 12 - Science (JEE/NEET)</option>
+                      <label>Assign Class (6 to 12) *</label>
+                      <select id="pt-class" class="form-control" required>
+                        <option value="Class 6">Class 6</option>
+                        <option value="Class 7">Class 7</option>
+                        <option value="Class 8">Class 8</option>
+                        <option value="Class 9">Class 9</option>
+                        <option value="Class 10">Class 10</option>
+                        <option value="Class 11">Class 11 (JEE/NEET Wing)</option>
+                        <option value="Class 12">Class 12 (JEE/NEET Wing)</option>
                       </select>
                     </div>
-                    <div class="form-group">
-                      <label>Primary Specialization *</label>
-                      <input type="text" id="t-subject" class="form-control plain-input" placeholder="E.g. Physics (JEE Wing)" required>
-                    </div>
                   </div>
-                  <div class="mini-biometric-box">
-                    <div class="mini-bio-info"><i class="fa-solid fa-camera"></i> <span id="t-face-status">Teacher Face ID: Not Captured</span></div>
-                    <input type="hidden" id="t-face-token" value="">
-                    <button type="button" class="btn btn-sm btn-secondary" id="btn-capture-teacher-face">Capture Face ID</button>
+                  <div class="form-group">
+                    <label>Subject Specialization *</label>
+                    <input type="text" id="pt-subject" class="form-control" placeholder="E.g. Mathematics &amp; JEE Foundation" required>
                   </div>
-                  <button type="submit" class="btn btn-primary btn-block"><i class="fa-solid fa-user-plus"></i> Generate Teacher UID &amp; Appoint</button>
+
+                  <div class="biometric-capture-strip">
+                    <button type="button" class="btn btn-outline btn-sm" id="btn-pt-scan-face">
+                      <i class="fa-solid fa-camera"></i> <span id="pt-face-label">Scan Teacher Face</span>
+                    </button>
+                    <button type="button" class="btn btn-outline btn-sm" id="btn-pt-scan-thumb">
+                      <i class="fa-solid fa-fingerprint"></i> <span id="pt-thumb-label">Scan Teacher Thumb</span>
+                    </button>
+                    <input type="hidden" id="pt-face-token" value="">
+                    <input type="hidden" id="pt-thumb-token" value="">
+                  </div>
+
+                  <button type="submit" class="btn btn-gradient btn-block">
+                    <i class="fa-solid fa-check-circle"></i> Assign Class Teacher
+                  </button>
                 </form>
               </div>
 
-              <!-- Register Student -->
-              <div class="panel-card">
+              <!-- Appointed Class Teachers List -->
+              <div class="glass-panel-card">
                 <div class="panel-header">
-                  <div>
-                    <h3 class="panel-title"><i class="fa-solid fa-user-graduate"></i> Register Student (Class 6 to 12)</h3>
-                    <p class="panel-sub">Enroll student with Face ID (Student logs in via Face ID only)</p>
-                  </div>
+                  <h3 class="panel-title">Appointed Class Teachers Directory</h3>
                 </div>
-                <form id="principal-add-student-form" class="erp-form" novalidate>
-                  <div class="form-row-2">
-                    <div class="form-group">
-                      <label>Student Full Name *</label>
-                      <input type="text" id="s-name" class="form-control plain-input" placeholder="E.g. Ayush Mishra" required>
-                    </div>
-                    <div class="form-group">
-                      <label>Class &amp; Section *</label>
-                      <select id="s-class" class="form-control plain-input" required>
-                        <option value="Class 6-A">Class 6 - Section A</option>
-                        <option value="Class 6-B">Class 6 - Section B</option>
-                        <option value="Class 7-A">Class 7 - Section A</option>
-                        <option value="Class 7-B">Class 7 - Section B</option>
-                        <option value="Class 8-A">Class 8 - Section A</option>
-                        <option value="Class 8-B">Class 8 - Section B</option>
-                        <option value="Class 9-A">Class 9 - Section A</option>
-                        <option value="Class 9-B">Class 9 - Section B</option>
-                        <option value="Class 10-A">Class 10 - Section A</option>
-                        <option value="Class 10-B">Class 10 - Section B</option>
-                        <option value="Class 11-Sci">Class 11 - Science (JEE/NEET)</option>
-                        <option value="Class 12-Sci">Class 12 - Science (JEE/NEET)</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="form-row-2">
-                    <div class="form-group">
-                      <label>Roll Number *</label>
-                      <input type="number" id="s-roll" class="form-control plain-input" placeholder="1" min="1" required>
-                    </div>
-                    <div class="form-group">
-                      <label>Parent Name &amp; WhatsApp Phone *</label>
-                      <input type="text" id="s-parent" class="form-control plain-input" placeholder="Mr. V. Mishra (+91 98...)" required>
-                    </div>
-                  </div>
-                  <div class="mini-biometric-box">
-                    <div class="mini-bio-info"><i class="fa-solid fa-face-viewfinder"></i> <span id="s-face-status">Student Face ID: Not Captured</span></div>
-                    <input type="hidden" id="s-face-token" value="">
-                    <button type="button" class="btn btn-sm btn-secondary" id="btn-capture-student-face">Capture Face ID</button>
-                  </div>
-                  <button type="submit" class="btn btn-primary btn-block"><i class="fa-solid fa-check-double"></i> Enroll Student in Class</button>
-                </form>
+                <div class="table-responsive">
+                  <table class="data-table">
+                    <thead>
+                      <tr>
+                        <th>UID</th>
+                        <th>Teacher Name</th>
+                        <th>Assigned Class</th>
+                        <th>Biometrics</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody id="principal-teachers-tbody"></tbody>
+                  </table>
+                </div>
               </div>
             </div>
 
-            <!-- Appointed Teachers Table -->
-            <div class="panel-card">
-              <div class="panel-header">
-                <h3 class="panel-title">Appointed Class Teachers (Principal Can Reassign Class or Remove)</h3>
-              </div>
-              <div class="table-responsive">
-                <table class="data-table">
-                  <thead>
-                    <tr>
-                      <th>UID</th>
-                      <th>Name</th>
-                      <th>Phone</th>
-                      <th>Subject</th>
-                      <th>Assigned Class &amp; Sec</th>
-                      <th>Face ID</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody id="principal-teachers-tbody"></tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-
-          <!-- PRINCIPAL SUB-TAB 2: CAMPUS PHOTOS & VIDEOS CMS (ADD, EDIT, DELETE) -->
-          <div id="ptab-media" class="ptab-pane hidden">
-            <div class="panel-card">
+            <!-- Master Student Registry (Principal Can Remove Any Student Registration!) -->
+            <div class="glass-panel-card">
               <div class="panel-header">
                 <div>
-                  <h3 class="panel-title"><i class="fa-solid fa-cloud-arrow-up"></i> Upload or Edit Campus Photos &amp; Videos</h3>
-                  <p class="panel-sub">Upload photos/videos of School Ground, Classrooms (Section-wise), Computer Lab, or Digital Classroom</p>
+                  <h3 class="panel-title"><i class="fa-solid fa-users-viewfinder text-orange"></i> All Enrolled Students (Principal Can Remove Any Student)</h3>
+                  <p class="panel-sub">Students are added by Class Teachers (or Principal). Principal has full authority to remove any student registration.</p>
                 </div>
-              </div>
-              <form id="cms-media-form" class="erp-form" novalidate>
-                <input type="hidden" id="media-edit-id" value="">
-                <div class="form-row-2">
-                  <div class="form-group">
-                    <label>Select Campus Section *</label>
-                    <select id="media-category" class="form-control plain-input" required>
-                      <option value="School Ground">School Ground / Sports Pavilion</option>
-                      <option value="Classrooms">Classrooms (Class &amp; Section Photo/Video)</option>
-                      <option value="Computer Lab">Computer Lab</option>
-                      <option value="Digital Classroom">Digital Classroom / Smart Board</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label>Media Type *</label>
-                    <select id="media-type" class="form-control plain-input" required>
-                      <option value="IMAGE">Photo (Image Upload / URL)</option>
-                      <option value="VIDEO">Video (MP4 Upload / URL)</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="form-row-2">
-                  <div class="form-group">
-                    <label>Title / Class &amp; Section Name *</label>
-                    <input type="text" id="media-title" class="form-control plain-input" placeholder="E.g. Class 10-A Smart Classroom Session" required>
-                  </div>
-                  <div class="form-group">
-                    <label>Upload File from Device OR Paste URL *</label>
-                    <div style="display: flex; gap: 0.5rem;">
-                      <input type="file" id="media-file-input" class="form-control plain-input" accept="image/*,video/*">
-                      <input type="url" id="media-url-input" class="form-control plain-input" placeholder="Or paste https://... link">
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label>Detailed Description (Shown on Website) *</label>
-                  <input type="text" id="media-desc" class="form-control plain-input" placeholder="Describe the facility, equipment, or classroom activity..." required>
-                </div>
-                <div style="display: flex; gap: 0.75rem;">
-                  <button type="submit" class="btn btn-primary" id="media-submit-btn"><i class="fa-solid fa-upload"></i> Save Media to Website</button>
-                  <button type="button" class="btn btn-outline hidden" id="media-cancel-edit-btn">Cancel Edit</button>
-                </div>
-              </form>
-            </div>
-
-            <div class="panel-card">
-              <div class="panel-header">
-                <h3 class="panel-title">Manage Uploaded Photos &amp; Videos (Edit or Delete Anytime)</h3>
-              </div>
-              <div class="table-responsive">
-                <table class="data-table">
-                  <thead>
-                    <tr>
-                      <th>Preview</th>
-                      <th>Section</th>
-                      <th>Type</th>
-                      <th>Title</th>
-                      <th>Uploaded By</th>
-                      <th>Edit / Remove</th>
-                    </tr>
-                  </thead>
-                  <tbody id="cms-media-tbody"></tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-
-          <!-- PRINCIPAL SUB-TAB 3: NOTICES, EVENTS, HOLIDAYS & TOPPERS CMS -->
-          <div id="ptab-board" class="ptab-pane hidden">
-            <div class="dashboard-two-col">
-              <!-- Add/Edit Notice, Event, or Holiday -->
-              <div class="panel-card">
-                <div class="panel-header">
-                  <h3 class="panel-title"><i class="fa-solid fa-calendar-plus"></i> Publish Notice, Event, or Holiday</h3>
-                </div>
-                <form id="cms-board-form" class="erp-form" novalidate>
-                  <input type="hidden" id="board-edit-id" value="">
-                  <div class="form-row-2">
-                    <div class="form-group">
-                      <label>Post Type *</label>
-                      <select id="board-type" class="form-control plain-input" required>
-                        <option value="NOTICE">Official Notice Board Circular</option>
-                        <option value="EVENT">Upcoming / Campus Event</option>
-                        <option value="HOLIDAY">Official School Holiday</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label>Date / Duration *</label>
-                      <input type="text" id="board-date" class="form-control plain-input" placeholder="E.g. 15 Nov 2026 (or Nov 14–16)" required>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label>Headline / Title *</label>
-                    <input type="text" id="board-title" class="form-control plain-input" placeholder="E.g. All-India JEE Foundation Mock Test" required>
-                  </div>
-                  <div class="form-group">
-                    <label>Detailed Information *</label>
-                    <textarea id="board-desc" class="form-control plain-input" rows="2" placeholder="Full circular details..." required></textarea>
-                  </div>
-                  <div class="form-group">
-                    <label>Optional Attachment Photo (Upload or URL)</label>
-                    <input type="file" id="board-file-input" class="form-control plain-input" accept="image/*">
-                  </div>
-                  <button type="submit" class="btn btn-primary btn-block"><i class="fa-solid fa-paper-plane"></i> Publish / Update on Website</button>
-                </form>
-              </div>
-
-              <!-- Add/Edit School Topper -->
-              <div class="panel-card">
-                <div class="panel-header">
-                  <h3 class="panel-title"><i class="fa-solid fa-trophy"></i> Add / Edit School Topper</h3>
-                </div>
-                <form id="cms-topper-form" class="erp-form" novalidate>
-                  <input type="hidden" id="topper-edit-id" value="">
-                  <div class="form-row-2">
-                    <div class="form-group">
-                      <label>Topper Student Name *</label>
-                      <input type="text" id="topper-name" class="form-control plain-input" placeholder="E.g. Ananya Pandey" required>
-                    </div>
-                    <div class="form-group">
-                      <label>Class &amp; Exam Category *</label>
-                      <input type="text" id="topper-exam" class="form-control plain-input" placeholder="E.g. Class 12 Board / JEE Foundation Rank 1" required>
-                    </div>
-                  </div>
-                  <div class="form-row-2">
-                    <div class="form-group">
-                      <label>Score / Percentage / Percentile *</label>
-                      <input type="text" id="topper-score" class="form-control plain-input" placeholder="E.g. 99.4% (All-District Rank 1)" required>
-                    </div>
-                    <div class="form-group">
-                      <label>Topper Photo *</label>
-                      <input type="file" id="topper-file-input" class="form-control plain-input" accept="image/*">
-                    </div>
-                  </div>
-                  <button type="submit" class="btn btn-primary btn-block"><i class="fa-solid fa-medal"></i> Save Topper to Hall of Fame</button>
-                </form>
-              </div>
-            </div>
-
-            <div class="panel-card">
-              <div class="panel-header">
-                <h3 class="panel-title">Manage Published Notices, Events, Holidays &amp; Toppers (Edit / Delete)</h3>
-              </div>
-              <div class="table-responsive">
-                <table class="data-table">
-                  <thead>
-                    <tr>
-                      <th>Category</th>
-                      <th>Date / Score</th>
-                      <th>Title / Student</th>
-                      <th>Description</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody id="cms-board-tbody"></tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-
-          <!-- PRINCIPAL SUB-TAB 4: DETAILED SCORES, ATTENDANCE & MONTHLY PDF GENERATOR -->
-          <div id="ptab-reports" class="ptab-pane hidden">
-            <div class="panel-card">
-              <div class="panel-header">
-                <div>
-                  <h3 class="panel-title"><i class="fa-solid fa-chart-line"></i> Master Student Attendance, Detailed Marks &amp; Monthly Parent PDF</h3>
-                  <p class="panel-sub">Edit any student's attendance, subject scores, JEE/Olympiad score, and generate official Monthly PDF for Parents</p>
-                </div>
-                <select id="principal-class-filter" class="form-control plain-input" style="width: auto;">
-                  <option value="ALL">All Classes &amp; Sections</option>
-                  <option value="Class 6-A">Class 6-A</option>
-                  <option value="Class 6-B">Class 6-B</option>
-                  <option value="Class 7-A">Class 7-A</option>
-                  <option value="Class 8-A">Class 8-A</option>
-                  <option value="Class 9-A">Class 9-A</option>
-                  <option value="Class 10-A">Class 10-A</option>
-                  <option value="Class 11-Sci">Class 11-Sci</option>
-                  <option value="Class 12-Sci">Class 12-Sci</option>
+                <select id="p-student-filter-class" class="form-control" style="width:auto;">
+                  <option value="ALL">All Classes (6 to 12)</option>
+                  <option value="Class 6">Class 6</option>
+                  <option value="Class 7">Class 7</option>
+                  <option value="Class 8">Class 8</option>
+                  <option value="Class 9">Class 9</option>
+                  <option value="Class 10">Class 10</option>
+                  <option value="Class 11">Class 11</option>
+                  <option value="Class 12">Class 12</option>
                 </select>
               </div>
               <div class="table-responsive">
                 <table class="data-table">
                   <thead>
                     <tr>
-                      <th>UID &amp; Roll</th>
-                      <th>Student &amp; Class</th>
-                      <th>Days Present / Total</th>
-                      <th>Maths (100)</th>
-                      <th>Science/Phy (100)</th>
-                      <th>Chem/Comp (100)</th>
-                      <th>English (100)</th>
-                      <th>JEE/Olympiad (100)</th>
-                      <th>Aggregate %</th>
-                      <th>Save / Monthly PDF</th>
+                      <th>Student UID</th>
+                      <th>Roll #</th>
+                      <th>Student Name</th>
+                      <th>Class</th>
+                      <th>Added By</th>
+                      <th>Today Attendance</th>
+                      <th>Latest Exam %</th>
+                      <th>Remove Registration</th>
                     </tr>
                   </thead>
-                  <tbody id="principal-students-tbody"></tbody>
+                  <tbody id="principal-all-students-tbody"></tbody>
                 </table>
               </div>
             </div>
           </div>
 
-        </div>
-
-        <!-- =============================================================
-             VIEW 2: CLASS-TEACHER DASHBOARD (ASSIGNED CLASS MEDIA, ATTENDANCE & MARKS)
-             ============================================================= -->
-        <div id="view-faculty-dashboard" class="role-view-container hidden">
-          <div class="faculty-assigned-banner">
-            <div class="banner-badge"><i class="fa-solid fa-chalkboard-user"></i> CLASS TEACHER PORTAL</div>
-            <div class="banner-text">
-              <h3 id="faculty-banner-heading">Class Teacher Workspace</h3>
-              <p>You can manage <strong>Detailed Student Attendance, Subject &amp; JEE Foundation Marks, Monthly Parent PDF Reports, Class Notice Board, and Classroom Photos/Videos</strong> for your assigned class.</p>
+          <!-- PTAB 2: LIVE ATTENDANCE FEED FOR PRINCIPAL -->
+          <div id="ptab-live-attendance" class="ptab-pane hidden">
+            <div class="glass-panel-card">
+              <div class="panel-header">
+                <div>
+                  <h3 class="panel-title"><i class="fa-solid fa-satellite-dish text-emerald"></i> Direct Principal Attendance Monitor (Live from All Class Teachers)</h3>
+                  <p class="panel-sub">Whenever any Class Teacher marks or updates attendance, it appears here immediately.</p>
+                </div>
+                <button type="button" class="btn btn-outline btn-sm" id="p-mark-attendance-direct-btn">
+                  <i class="fa-solid fa-check-double"></i> Mark All Present Today
+                </button>
+              </div>
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Date &amp; Time</th>
+                      <th>Class</th>
+                      <th>Student UID &amp; Roll</th>
+                      <th>Student Name</th>
+                      <th>Today's Status</th>
+                      <th>Monthly Present / Working Days</th>
+                      <th>Marked By</th>
+                    </tr>
+                  </thead>
+                  <tbody id="principal-live-attendance-tbody"></tbody>
+                </table>
+              </div>
             </div>
           </div>
 
-          <div class="panel-card">
+          <!-- PTAB 3: CHUNKED MEDIA & ACTIVITIES UPLOADER -->
+          <div id="ptab-media-cms" class="ptab-pane hidden">
+            <div class="glass-panel-card">
+              <div class="panel-header">
+                <h3 class="panel-title"><i class="fa-solid fa-cloud-arrow-up text-amber"></i> Manage All Uploaded Campus &amp; Class Activity Videos/Photos</h3>
+                <button type="button" class="btn btn-gradient btn-sm" id="p-trigger-upload-modal">
+                  <i class="fa-solid fa-plus"></i> Upload New Video / Photo (Chunked)
+                </button>
+              </div>
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Section / Activity</th>
+                      <th>Class</th>
+                      <th>Media Type</th>
+                      <th>Title &amp; Description</th>
+                      <th>Uploaded By</th>
+                      <th>Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody id="principal-media-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- PTAB 4: NOTICES, EVENTS, HOLIDAYS & TOPPERS -->
+          <div id="ptab-board-cms" class="ptab-pane hidden">
+            <div class="two-col-grid">
+              <div class="glass-panel-card">
+                <div class="panel-header"><h3 class="panel-title">Publish Notice, Event or Holiday</h3></div>
+                <form id="p-board-form" class="erp-form" novalidate>
+                  <div class="form-row-2">
+                    <div class="form-group">
+                      <label>Category *</label>
+                      <select id="pb-type" class="form-control">
+                        <option value="NOTICE">Notice Board Circular</option>
+                        <option value="EVENT">Upcoming Campus Event</option>
+                        <option value="HOLIDAY">Official School Holiday</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label>Date / Schedule *</label>
+                      <input type="text" id="pb-date" class="form-control" placeholder="E.g. 20 Nov 2026" required>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label>Title *</label>
+                    <input type="text" id="pb-title" class="form-control" placeholder="Headline..." required>
+                  </div>
+                  <div class="form-group">
+                    <label>Details *</label>
+                    <textarea id="pb-desc" class="form-control" rows="2" placeholder="Full announcement..." required></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-gradient btn-block">Publish to Website</button>
+                </form>
+              </div>
+
+              <div class="glass-panel-card">
+                <div class="panel-header"><h3 class="panel-title">Add School / JEE Foundation Topper</h3></div>
+                <form id="p-topper-form" class="erp-form" novalidate>
+                  <div class="form-row-2">
+                    <div class="form-group">
+                      <label>Student Name *</label>
+                      <input type="text" id="top-name" class="form-control" placeholder="Topper Name" required>
+                    </div>
+                    <div class="form-group">
+                      <label>Class &amp; Exam *</label>
+                      <input type="text" id="top-exam" class="form-control" placeholder="Class 12 / JEE Rank" required>
+                    </div>
+                  </div>
+                  <div class="form-row-2">
+                    <div class="form-group">
+                      <label>Score / Rank *</label>
+                      <input type="text" id="top-score" class="form-control" placeholder="99.6% / Rank 1" required>
+                    </div>
+                    <div class="form-group">
+                      <label>Topper Photo *</label>
+                      <input type="file" id="top-photo" class="form-control" accept="image/*" required>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-gradient btn-block">Add Topper to Website</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- =============================================================
+             VIEW B: CLASS-TEACHER WORKSPACE
+             (Add Students to Own Class + Mark Live Attendance + Monthly Scores + Upload Media)
+             ============================================================= -->
+        <div id="view-faculty-dashboard" class="role-view-container hidden">
+          <div class="role-banner">
+            <i class="fa-solid fa-chalkboard-user icon-gold"></i>
+            <div>
+              <strong id="f-banner-title">Class Teacher Workspace</strong>
+              <p>You can enroll students into your assigned class, mark daily attendance (sent live to the Principal), record monthly test &amp; exam marks, and upload class/activity videos &amp; photos.</p>
+            </div>
+          </div>
+
+          <div class="two-col-grid">
+            <!-- 1. Teacher Enrolls Student in Assigned Class -->
+            <div class="glass-panel-card">
+              <div class="panel-header">
+                <div>
+                  <h3 class="panel-title"><i class="fa-solid fa-user-graduate text-amber"></i> 1. Add Student to My Class (<span class="f-cls-label">--</span>)</h3>
+                  <p class="panel-sub">Register student with Name, Roll No, Face ID &amp; Thumb Finger</p>
+                </div>
+              </div>
+              <form id="teacher-add-student-form" class="erp-form" novalidate>
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label>Student Full Name *</label>
+                    <input type="text" id="ts-name" class="form-control" placeholder="E.g. Aarav Verma" required>
+                  </div>
+                  <div class="form-group">
+                    <label>Roll Number *</label>
+                    <input type="number" id="ts-roll" class="form-control" placeholder="1" min="1" required>
+                  </div>
+                </div>
+
+                <div class="biometric-capture-strip">
+                  <button type="button" class="btn btn-outline btn-sm" id="btn-ts-scan-face">
+                    <i class="fa-solid fa-camera"></i> <span id="ts-face-label">Scan Student Face</span>
+                  </button>
+                  <button type="button" class="btn btn-outline btn-sm" id="btn-ts-scan-thumb">
+                    <i class="fa-solid fa-fingerprint"></i> <span id="ts-thumb-label">Scan Student Thumb</span>
+                  </button>
+                  <input type="hidden" id="ts-face-token" value="">
+                  <input type="hidden" id="ts-thumb-token" value="">
+                </div>
+
+                <button type="submit" class="btn btn-gradient btn-block">
+                  <i class="fa-solid fa-user-plus"></i> Enroll Student in My Class
+                </button>
+              </form>
+            </div>
+
+            <!-- 2. Teacher Adds Monthly Exam/Test Score Record -->
+            <div class="glass-panel-card">
+              <div class="panel-header">
+                <div>
+                  <h3 class="panel-title"><i class="fa-solid fa-file-pen text-orange"></i> 2. Add Monthly Exam / Test Score</h3>
+                  <p class="panel-sub">Record monthly test, unit exam, or JEE/Olympiad foundation marks</p>
+                </div>
+              </div>
+              <form id="teacher-add-score-form" class="erp-form" novalidate>
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label>Select Student *</label>
+                    <select id="sc-student-uid" class="form-control" required></select>
+                  </div>
+                  <div class="form-group">
+                    <label>Month &amp; Test Name *</label>
+                    <div style="display:flex; gap:0.4rem;">
+                      <select id="sc-month" class="form-control">
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                      </select>
+                      <input type="text" id="sc-exam-name" class="form-control" placeholder="Unit Test 2 / JEE Mock" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="marks-5-grid">
+                  <div><label>Maths</label><input type="number" id="sc-math" class="form-control" value="92" min="0" max="100"></div>
+                  <div><label>Sci/Phy</label><input type="number" id="sc-sci" class="form-control" value="90" min="0" max="100"></div>
+                  <div><label>Chem/Comp</label><input type="number" id="sc-chem" class="form-control" value="94" min="0" max="100"></div>
+                  <div><label>English</label><input type="number" id="sc-eng" class="form-control" value="88" min="0" max="100"></div>
+                  <div><label>JEE/Olymp</label><input type="number" id="sc-jee" class="form-control" value="95" min="0" max="100"></div>
+                </div>
+                <button type="submit" class="btn btn-gradient btn-block">
+                  <i class="fa-solid fa-floppy-disk"></i> Save Monthly Test Score
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- 3. Teacher Marks Daily & Monthly Attendance (Syncs Live to Principal!) -->
+          <div class="glass-panel-card">
             <div class="panel-header">
               <div>
-                <h3 class="panel-title"><i class="fa-solid fa-user-check"></i> Assigned Class Attendance, Detailed Scores &amp; Monthly Parent PDF</h3>
-                <p class="panel-sub">Update monthly working days, attendance, subject scores, and generate Monthly PDF Report for Parents</p>
+                <h3 class="panel-title"><i class="fa-solid fa-clipboard-check text-emerald"></i> 3. Mark Class Attendance (Syncs Directly to Principal Dashboard)</h3>
+                <p class="panel-sub">Update today's attendance and monthly present days for your class students</p>
               </div>
-              <button type="button" class="btn btn-primary btn-sm" id="faculty-save-all-btn">
-                <i class="fa-solid fa-floppy-disk"></i> Save All Class Records
+              <button type="button" class="btn btn-gradient btn-sm" id="faculty-sync-attendance-btn">
+                <i class="fa-solid fa-paper-plane"></i> Submit &amp; Sync Attendance to Principal
               </button>
             </div>
             <div class="table-responsive">
               <table class="data-table">
                 <thead>
                   <tr>
-                    <th>Roll &amp; UID</th>
+                    <th>Roll #</th>
+                    <th>Student UID</th>
                     <th>Student Name</th>
-                    <th>Today</th>
-                    <th>Days Present / Total</th>
-                    <th>Maths (100)</th>
-                    <th>Science (100)</th>
-                    <th>Chem/Comp (100)</th>
-                    <th>English (100)</th>
-                    <th>JEE/Foundation (100)</th>
-                    <th>Total %</th>
-                    <th>Parent PDF</th>
+                    <th>Today's Attendance Status</th>
+                    <th>Days Present (This Month)</th>
+                    <th>Total Working Days</th>
+                    <th>Monthly PDF</th>
                   </tr>
                 </thead>
-                <tbody id="faculty-students-tbody"></tbody>
+                <tbody id="faculty-attendance-tbody"></tbody>
               </table>
             </div>
-          </div>
-
-          <!-- Class Teacher Classroom Photo/Video Upload -->
-          <div class="panel-card">
-            <div class="panel-header">
-              <h3 class="panel-title"><i class="fa-solid fa-camera-retro"></i> Upload My Class / Section Photo or Video to Website</h3>
-            </div>
-            <form id="teacher-media-form" class="erp-form" novalidate>
-              <div class="form-row-2">
-                <div class="form-group">
-                  <label>Activity / Classroom Title *</label>
-                  <input type="text" id="tm-title" class="form-control plain-input" placeholder="E.g. Class Smartboard Activity / Lab Test" required>
-                </div>
-                <div class="form-group">
-                  <label>Upload Photo / Video File *</label>
-                  <input type="file" id="tm-file" class="form-control plain-input" accept="image/*,video/*" required>
-                </div>
-              </div>
-              <button type="submit" class="btn btn-secondary btn-sm"><i class="fa-solid fa-upload"></i> Upload Class Media</button>
-            </form>
           </div>
         </div>
 
         <!-- =============================================================
-             VIEW 3: STUDENT DASHBOARD (FACE-ID AUTHENTICATED)
+             VIEW C: STUDENT BIOMETRIC PORTAL
              ============================================================= -->
         <div id="view-student-dashboard" class="role-view-container hidden">
-          <div class="profile-masthead">
-            <div class="masthead-avatar"><i class="fa-solid fa-user-graduate"></i></div>
-            <div class="masthead-details" style="flex: 1;">
-              <div class="name-row">
-                <h3 id="student-portal-name">Student Name</h3>
-                <span class="badge badge-success"><i class="fa-solid fa-check"></i> Face ID Verified</span>
-              </div>
-              <p class="meta-row" id="student-portal-meta">UID: -- | Class: --</p>
+          <div class="role-banner">
+            <i class="fa-solid fa-user-graduate icon-gold"></i>
+            <div style="flex:1;">
+              <strong id="stu-banner-name">Student Academic Portal</strong>
+              <p id="stu-banner-meta">UID: -- | Class: -- | Biometric Session Verified</p>
             </div>
-            <button type="button" class="btn btn-primary" id="student-download-own-pdf-btn">
-              <i class="fa-solid fa-file-pdf"></i> Download My Monthly Report PDF
+            <button type="button" class="btn btn-gradient btn-sm" id="stu-download-pdf-btn">
+              <i class="fa-solid fa-file-pdf"></i> Download Monthly Report PDF
             </button>
           </div>
 
-          <div class="panel-card">
+          <div class="glass-panel-card">
             <div class="panel-header">
-              <h3 class="panel-title">My Detailed Subject &amp; JEE Foundation Scoreboard</h3>
+              <h3 class="panel-title">My Monthly Exam &amp; Competitive Foundation Score History</h3>
             </div>
             <div class="table-responsive">
               <table class="data-table">
                 <thead>
                   <tr>
-                    <th>Subject / Evaluation Wing</th>
-                    <th>Max Marks</th>
-                    <th>Marks Scored</th>
-                    <th>Grade</th>
+                    <th>Month</th>
+                    <th>Exam / Test Name</th>
+                    <th>Maths</th>
+                    <th>Science/Phy</th>
+                    <th>Chem/Comp</th>
+                    <th>English</th>
+                    <th>JEE/Olympiad</th>
+                    <th>Aggregate %</th>
                   </tr>
                 </thead>
-                <tbody id="student-report-tbody"></tbody>
+                <tbody id="student-own-scores-tbody"></tbody>
               </table>
             </div>
           </div>
         </div>
 
         <!-- =============================================================
-             VIEW 4: DEVELOPER MODE & SUPABASE DIAGNOSTICS
+             VIEW D: DEVELOPER ROOT VAULT (`>_dev`)
+             Strictly Locked by Developer's Own Face + Thumb Finger!
+             Only Developer can change Principal or edit/delete any record.
              ============================================================= -->
         <div id="view-developer-dashboard" class="role-view-container hidden">
-          <div class="dev-mode-banner">
+          <div class="dev-vault-banner">
             <div>
-              <h3><i class="fa-solid fa-terminal"></i> Developer Mode &amp; Supabase Cloud Diagnostics (`kfsahylpyelqyjtkxhqr`)</h3>
-              <p>Live issue tracker for St. Joseph's School, Basti ERP. Inspect empty sections, database health, and Supabase connectivity.</p>
+              <h3><i class="fa-solid fa-terminal"></i> ROOT DEVELOPER BIOMETRIC VAULT (<code>&gt;_dev</code>)</h3>
+              <p>Authenticated with Developer Master Face ID &amp; Thumbprint. Only YOU have the authority to replace/change the Principal, modify any Teacher/Student, or inspect raw database state.</p>
             </div>
-            <div style="display: flex; gap: 0.5rem;">
-              <button type="button" class="btn btn-sm btn-white" id="dev-run-health-check-btn"><i class="fa-solid fa-rotate"></i> Refresh Scan</button>
-              <button type="button" class="btn btn-sm btn-danger-soft" id="dev-reset-db-btn"><i class="fa-solid fa-trash"></i> Wipe All Data (Empty Reset)</button>
+            <span class="badge badge-emerald"><i class="fa-solid fa-fingerprint"></i> DEVELOPER HARDWARE LOCKED</span>
+          </div>
+
+          <div class="two-col-grid">
+            <!-- Developer Exclusive: Change / Replace Principal -->
+            <div class="glass-panel-card">
+              <div class="panel-header">
+                <div>
+                  <h3 class="panel-title"><i class="fa-solid fa-user-shield text-amber"></i> Change / Appoint New Principal (Developer Exclusive)</h3>
+                  <p class="panel-sub">No one else on the website can change the Principal except you from this vault.</p>
+                </div>
+              </div>
+              <form id="dev-change-principal-form" class="erp-form" novalidate>
+                <div class="form-group">
+                  <label>New Principal Full Name *</label>
+                  <input type="text" id="dev-new-principal-name" class="form-control" placeholder="Enter New Principal Name" required>
+                </div>
+                <div class="biometric-capture-strip">
+                  <button type="button" class="btn btn-outline btn-sm" id="btn-dev-scan-p-face">
+                    <i class="fa-solid fa-camera"></i> <span id="dev-p-face-lbl">Scan New Principal Face</span>
+                  </button>
+                  <button type="button" class="btn btn-outline btn-sm" id="btn-dev-scan-p-thumb">
+                    <i class="fa-solid fa-fingerprint"></i> <span id="dev-p-thumb-lbl">Scan New Principal Thumb</span>
+                  </button>
+                  <input type="hidden" id="dev-p-face-token" value="">
+                  <input type="hidden" id="dev-p-thumb-token" value="">
+                </div>
+                <button type="submit" class="btn btn-gradient btn-block">
+                  <i class="fa-solid fa-key"></i> Override &amp; Replace Principal Account
+                </button>
+              </form>
+            </div>
+
+            <!-- Developer Master Controls & Diagnostics -->
+            <div class="glass-panel-card">
+              <div class="panel-header">
+                <h3 class="panel-title"><i class="fa-solid fa-sliders text-orange"></i> Root Database &amp; Media Controls</h3>
+              </div>
+              <div class="stack-list">
+                <div class="dev-stat-row">
+                  <span>Current Principal:</span>
+                  <strong id="dev-stat-principal">Not Created</strong>
+                </div>
+                <div class="dev-stat-row">
+                  <span>Developer Biometric Signature:</span>
+                  <strong class="text-emerald" id="dev-stat-signature">Locked &amp; Active</strong>
+                </div>
+                <div class="dev-stat-row">
+                  <span>IndexedDB Chunked Media Blobs:</span>
+                  <strong id="dev-stat-media-blobs">0 Files</strong>
+                </div>
+                <div style="display:flex; gap:0.6rem; flex-wrap:wrap; margin-top:0.75rem;">
+                  <button type="button" class="btn btn-outline btn-sm" id="dev-export-json-btn">
+                    <i class="fa-solid fa-download"></i> Export Full DB Backup
+                  </button>
+                  <button type="button" class="btn btn-danger-soft btn-sm" id="dev-wipe-all-btn">
+                    <i class="fa-solid fa-trash-can"></i> Factory Reset Database
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="dashboard-two-col">
-            <div class="panel-card">
-              <div class="panel-header"><h3 class="panel-title">Live Diagnostic Check</h3></div>
-              <div id="dev-issues-list" class="dev-issues-list"></div>
+          <!-- Developer Master Student & Teacher Override Table -->
+          <div class="glass-panel-card">
+            <div class="panel-header">
+              <h3 class="panel-title"><i class="fa-solid fa-database"></i> Developer Full Database Override (Edit / Delete Any Teacher or Student)</h3>
             </div>
-            <div class="panel-card">
-              <div class="panel-header"><h3 class="panel-title">System Event Logs</h3></div>
-              <div id="dev-console-logs" class="dev-console-box"></div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Role</th>
+                    <th>UID</th>
+                    <th>Full Name</th>
+                    <th>Class</th>
+                    <th>Edit Name / Class</th>
+                    <th>Delete Record</th>
+                  </tr>
+                </thead>
+                <tbody id="dev-master-records-tbody"></tbody>
+              </table>
             </div>
           </div>
 
-          <div class="panel-card">
-            <div class="panel-header"><h3 class="panel-title">Raw Database JSON State</h3></div>
+          <!-- Raw JSON Inspector -->
+          <div class="glass-panel-card">
+            <div class="panel-header"><h3 class="panel-title">Live Database JSON Inspector</h3></div>
             <pre id="dev-raw-json-box" class="dev-json-viewer"></pre>
           </div>
         </div>
@@ -947,32 +1131,155 @@
 
 
   <!-- ===================================================================
-       3. MONTHLY PARENT PDF REPORT MODAL (PRINTABLE & WHATSAPP READY)
+       3. DEVELOPER BIOMETRIC SECURITY GATE MODAL (`>_dev` Lock)
+       Blocks everyone unless Developer's Face + Thumbprint is verified!
        =================================================================== -->
-  <div id="pdf-report-modal" class="modal-backdrop" aria-hidden="true">
-    <div class="modal-card" style="max-width: 820px; padding: 2rem;">
-      <button type="button" class="modal-close-btn" id="close-pdf-modal-btn">&times;</button>
+  <div id="dev-biometric-modal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-card" style="max-width: 540px;">
+      <button type="button" class="modal-close-btn" id="close-dev-modal-btn">&times;</button>
       
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
-        <h3 style="color: var(--primary-navy); font-family: var(--font-serif);">Official Monthly Parent Report Card</h3>
-        <div style="display: flex; gap: 0.5rem;">
-          <button type="button" class="btn btn-primary btn-sm" id="btn-download-pdf-file">
-            <i class="fa-solid fa-file-arrow-down"></i> Download PDF File
+      <div class="login-dock-header text-center">
+        <span class="dock-badge"><i class="fa-solid fa-lock"></i> RESTRICTED ROOT ACCESS</span>
+        <h3>Developer Biometric Gate (<code>&gt;_dev</code>)</h3>
+        <p id="dev-gate-subtitle">Only the Website Developer can unlock this console using their personal Face ID and Thumbprint.</p>
+      </div>
+
+      <div class="dual-biometric-grid" style="margin: 1.25rem 0;">
+        <div class="bio-sensor-card">
+          <div class="sensor-top">
+            <span>1. Developer Face</span>
+            <span class="badge badge-warn" id="dev-gate-face-badge">Required</span>
+          </div>
+          <div class="webcam-viewport">
+            <video id="dev-gate-video" autoplay playsinline muted></video>
+            <div class="scan-laser-line"></div>
+            <div class="webcam-placeholder" id="dev-gate-placeholder">
+              <i class="fa-solid fa-user-secret"></i>
+              <span>Developer Face</span>
+            </div>
+          </div>
+          <input type="hidden" id="dev-gate-face-token" value="">
+          <button type="button" class="btn btn-outline btn-sm btn-block" id="btn-scan-dev-face">
+            <i class="fa-solid fa-camera"></i> Scan My Face
           </button>
-          <button type="button" class="btn btn-secondary btn-sm" id="btn-share-whatsapp-parent">
-            <i class="fa-brands fa-whatsapp"></i> Send Report to Parent (WhatsApp)
+        </div>
+
+        <div class="bio-sensor-card">
+          <div class="sensor-top">
+            <span>2. Developer Thumb</span>
+            <span class="badge badge-warn" id="dev-gate-thumb-badge">Required</span>
+          </div>
+          <div class="thumb-viewport">
+            <div class="thumb-ring-pulse"></div>
+            <i class="fa-solid fa-fingerprint thumb-huge-icon" id="dev-gate-thumb-icon"></i>
+            <span class="thumb-hint-text" id="dev-gate-thumb-text">Hardware TouchID / Thumb</span>
+          </div>
+          <input type="hidden" id="dev-gate-thumb-token" value="">
+          <button type="button" class="btn btn-outline btn-sm btn-block" id="btn-scan-dev-thumb">
+            <i class="fa-solid fa-fingerprint"></i> Scan My Thumb
           </button>
         </div>
       </div>
 
-      <!-- Printable A4 Report Sheet -->
-      <div id="printable-report-card" class="printable-report-sheet">
-        <!-- Populated dynamically via script.js -->
-      </div>
+      <button type="button" class="btn btn-gradient btn-block" id="btn-unlock-dev-vault">
+        <i class="fa-solid fa-unlock-keyhole"></i> Verify Developer Biometrics &amp; Enter <code>&gt;_dev</code>
+      </button>
     </div>
   </div>
 
-  <!-- Master External JavaScript -->
-  <script src="script.js"></script>
+
+  <!-- ===================================================================
+       4. CHUNKED VIDEO & PHOTO UPLOAD MODAL (FOR PRINCIPAL & TEACHERS)
+       Splits large files into 512KB chunks for ultra-smooth zero-lag upload!
+       =================================================================== -->
+  <div id="chunked-upload-modal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-card" style="max-width: 580px;">
+      <button type="button" class="modal-close-btn" id="close-upload-modal-btn">&times;</button>
+
+      <div class="login-dock-header">
+        <span class="dock-badge"><i class="fa-solid fa-bolt"></i> 512KB CHUNKED STREAMING ENGINE</span>
+        <h3>Upload Class / Campus Video or Photo</h3>
+        <p>Files are automatically sliced into lightweight chunks and lazy-loaded so the website stays ultra-fast.</p>
+      </div>
+
+      <form id="chunked-media-upload-form" class="erp-form" novalidate>
+        <div class="form-row-2">
+          <div class="form-group">
+            <label>Destination Section *</label>
+            <select id="up-section" class="form-control" required>
+              <option value="Student Activities">Student Activities (Any Class Activity)</option>
+              <option value="Classrooms">Classrooms (Class Photo/Video)</option>
+              <option value="School Ground">School Ground / Sports</option>
+              <option value="Computer Lab">Computer Lab</option>
+              <option value="Digital Classroom">Digital Classroom</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Select Class (6 to 12) *</label>
+            <select id="up-class" class="form-control" required>
+              <option value="Class 6">Class 6</option>
+              <option value="Class 7">Class 7</option>
+              <option value="Class 8">Class 8</option>
+              <option value="Class 9">Class 9</option>
+              <option value="Class 10">Class 10</option>
+              <option value="Class 11">Class 11</option>
+              <option value="Class 12">Class 12</option>
+              <option value="All Classes">All Classes / Campus-Wide</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Activity / Video / Photo Title *</label>
+          <input type="text" id="up-title" class="form-control" placeholder="E.g. Class 9 Robotics Lab Demonstration" required>
+        </div>
+
+        <div class="form-group">
+          <label>Select High-Res Photo or HD Video File *</label>
+          <input type="file" id="up-file" class="form-control" accept="image/*,video/*" required>
+        </div>
+
+        <div class="form-group">
+          <label>Short Description *</label>
+          <input type="text" id="up-desc" class="form-control" placeholder="Describe what students are doing in this activity..." required>
+        </div>
+
+        <!-- Live Chunk Progress Bar -->
+        <div id="chunk-progress-wrapper" class="chunk-progress-box hidden">
+          <div class="chunk-info-row">
+            <span id="chunk-status-text">Processing Chunks...</span>
+            <strong id="chunk-percent-text">0%</strong>
+          </div>
+          <div class="chunk-bar-track">
+            <div id="chunk-bar-fill" class="chunk-bar-fill" style="width: 0%;"></div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-gradient btn-block" id="btn-start-chunk-upload">
+          <i class="fa-solid fa-cloud-arrow-up"></i> Start Chunked Upload
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- ===================================================================
+       5. PRINTABLE MONTHLY REPORT PDF MODAL
+       =================================================================== -->
+  <div id="pdf-report-modal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-card" style="max-width: 800px;">
+      <button type="button" class="modal-close-btn" id="close-pdf-modal-btn">&times;</button>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:0.5rem;">
+        <h3 style="font-family:var(--font-serif); color:#f8fafc;">Official Monthly Student Progress Report</h3>
+        <button type="button" class="btn btn-gradient btn-sm" id="btn-download-pdf-file">
+          <i class="fa-solid fa-file-arrow-down"></i> Download PDF Report
+        </button>
+      </div>
+      <div id="printable-report-card" class="printable-report-sheet"></div>
+    </div>
+  </div>
+
+  <!-- Master JavaScript Engine -->
+  <script src="script.js" defer></script>
 </body>
 </html>
